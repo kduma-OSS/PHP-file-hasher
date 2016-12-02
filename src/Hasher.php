@@ -1,12 +1,11 @@
 <?php
-namespace KDuma\FileHasher;
 
+namespace KDuma\FileHasher;
 
 use MessagePack\Packer;
 
 /**
- * Class Hasher
- * @package KDuma\FileHasher
+ * Class Hasher.
  */
 class Hasher
 {
@@ -15,14 +14,16 @@ class Hasher
      * @return bool
      * @throws \Exception
      */
-    public static function file($real_file) {
+    public static function file($real_file)
+    {
         $path_info = pathinfo($real_file);
 
         $real_file = realpath($path_info['dirname'].'/'.$path_info['basename']);
         $hash_file = $real_file.'.ph';
 
-        if(!$real_file)
+        if (! $real_file) {
             throw new \Exception('Hashed file doesn\'t exist!');
+        }
 
         $sha1 = sha1_file($real_file);
         $md5 = md5_file($real_file);
