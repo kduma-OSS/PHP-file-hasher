@@ -1,0 +1,20 @@
+{
+  "name": "kduma/file-hasher",
+  "description": "MD5 and SHA1 file hash calculator and checker",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Krystian Duma",
+      "email": "git@kduma.tk"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "KDuma\\FileHasher\\": "src/"
+    }
+  },
+  "require": {
+    "rybakit/msgpack": "^0.2.1"
+  }
+}
