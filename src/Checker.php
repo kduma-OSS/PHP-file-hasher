@@ -44,4 +44,31 @@ class Checker
 
         return true;
     }
+
+    /**
+     * @param $stream
+     * @param $checksums_string
+     * @return bool
+     */
+    public static function stream($stream, $checksums_string)
+    {
+        $sha1 = hash_init('sha1');
+        $md5  = hash_init('md5');
+
+        while ($buffer = fread($stream, 1024)) {
+            hash_update($sha1, $buffer);
+            hash_update($md5, $buffer);
+        }
+
+        $sha1 = hash_final($sha1);
+        $md5  = hash_final($md5);
+
+        $hashes = (new Unpacker())->unpack($checksums_string);
+
+        if ($sha1 != $hashes['sha1'] || $md5 != $hashes['md5']) {
+            return false;
+        }
+
+        return true;
+    }
 }

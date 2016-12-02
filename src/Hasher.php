@@ -32,4 +32,24 @@ class Hasher
 
         return true;
     }
+
+    /**
+     * @param $stream
+     * @return string
+     */
+    public static function stream($stream)
+    {
+        $sha1 = hash_init('sha1');
+        $md5  = hash_init('md5');
+
+        while ($buffer = fread($stream, 1024)) {
+            hash_update($sha1, $buffer);
+            hash_update($md5, $buffer);
+        }
+
+        $sha1 = hash_final($sha1);
+        $md5  = hash_final($md5);
+
+        return (new Packer())->pack(['sha1' => $sha1, 'md5' => $md5]);
+    }
 }
