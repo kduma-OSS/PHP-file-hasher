@@ -53,7 +53,7 @@ class Checker
     public static function stream($stream, $checksums_string)
     {
         $sha1 = hash_init('sha1');
-        $md5  = hash_init('md5');
+        $md5 = hash_init('md5');
 
         while ($buffer = fread($stream, 1024)) {
             hash_update($sha1, $buffer);
@@ -61,7 +61,7 @@ class Checker
         }
 
         $sha1 = hash_final($sha1);
-        $md5  = hash_final($md5);
+        $md5 = hash_final($md5);
 
         $hashes = (new Unpacker())->unpack($checksums_string);
 
