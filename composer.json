@@ -6,7 +6,7 @@
   "authors": [
     {
       "name": "Krystian Duma",
-      "email": "git@kduma.tk"
+      "email": "git@krystian.duma.sh"
     }
   ],
   "autoload": {
@@ -15,6 +15,7 @@
     }
   },
   "require": {
-    "rybakit/msgpack": "^0.2.1"
+    "php": ">=7.4",
+    "rybakit/msgpack": "^0.7.2"
   }
 }
