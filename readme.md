@@ -7,6 +7,8 @@
 
 MD5 and SHA1 file hash calculator and checker
 
+Check full documentation here: [opensource.duma.sh/libraries/php/file-hasher](https://opensource.duma.sh/libraries/php/file-hasher)
+
 ## Install
 
 Via Composer
